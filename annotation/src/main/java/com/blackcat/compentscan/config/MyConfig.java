@@ -30,31 +30,36 @@ import org.springframework.stereotype.Service;
  *  FilterType.ASPECTJ: aspectj类型的
  *  FilterType.CUSTOM: 自定义的
  */
-@Configuration
 //@ComponentScan(basePackages = {"com.blackcat.compentscan"})
 /**
  * 排除 将不会加载所有Controller类 及UserService类(指定类)
-*/
+ */
 /*@ComponentScan(basePackages = {"com.blackcat.compentscan"},excludeFilters = {
     @ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class}),
     @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,value = {UserService.class})
 })*/
-/**
- * 包含 只加载包含过滤条件
- */
-@ComponentScan(basePackages = {"com.blackcat.compentscan"},includeFilters = {
-    @ComponentScan.Filter(type = FilterType.CUSTOM,value = MyFilterType.class)
-},useDefaultFilters = false)
+
 /**
  * 组合使用
  */
 /*@ComponentScan(basePackages = {"com.blackcat.compentscan"},
     excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class, Service.class}),
-        @ComponentScan.Filter(type = FilterType.CUSTOM,value = MyFilterType.class)},
+        @ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class})},
     includeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION,value = Repository.class)
 })*/
+/**
+ * 包含 只加载包含过滤条件  需要把useDefaultFilters属性设置为false（true表示扫描全部的）
+ * 其他写法：
+ *  excludeFilters = {
+ *     @ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class, Service.class}),
+ *      @ComponentScan.Filter(type = FilterType.CUSTOM,value = MyFilterType.class)
+ *  }
+ */
+@ComponentScan(basePackages = {"com.blackcat.compentscan"},includeFilters = {
+    @ComponentScan.Filter(type = FilterType.CUSTOM,value = MyFilterType.class)
+},useDefaultFilters = false)
+@Configuration
 public class MyConfig {
 
 }

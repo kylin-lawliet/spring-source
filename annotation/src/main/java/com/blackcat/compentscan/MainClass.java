@@ -3,9 +3,7 @@ package com.blackcat.compentscan;
 import com.blackcat.compentscan.config.MyConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
- * Created by smlz on 2019/5/19.
- */
+
 public class MainClass {
 
     public static void main(String[] args) {
