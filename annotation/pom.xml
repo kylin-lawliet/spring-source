@@ -35,5 +35,11 @@
             <version>5.1.46</version>
             <scope>runtime</scope>
         </dependency>
+        <!--JSR330规范-->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
     </dependencies>
 </project>
